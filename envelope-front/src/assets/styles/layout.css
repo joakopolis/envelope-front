@@ -1,0 +1,37 @@
+.app-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-footer {
+  margin-top: var(--space-lg);
+  padding: var(--space-sm);
+  text-align: center;
+  font-size: 0.875rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.section {
+  margin-bottom: var(--space-lg);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space);
+}

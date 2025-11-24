@@ -2,7 +2,7 @@
   <div class="layout">
     <AppHeader />
 
-    <main class="content">
+    <main class="app-container">
       <slot />
     </main>
 
@@ -15,7 +15,7 @@ import AppHeader from './AppHeader.vue'
 import AppFooter from './AppFooter.vue'
 </script>
 
-<style scoped>
+<!--<style scoped>
 .layout {
   display: flex;
   flex-direction: column;
@@ -26,4 +26,4 @@ import AppFooter from './AppFooter.vue'
   flex: 1;
   padding: 2rem;
 }
-</style>
+</style>-->

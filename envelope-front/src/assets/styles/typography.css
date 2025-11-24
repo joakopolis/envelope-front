@@ -1,0 +1,25 @@
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-sm);
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.text-muted {
+  color: var(--gray-500);
+}
+
+.text-center {
+  text-align: center;
+}

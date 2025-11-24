@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="app-header">
         <div class="left">
             <span class="logo">More envelopes</span>
         </div>
@@ -16,10 +16,10 @@ import { computed } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
+const auth = useAuthStore()
+
 const userEmail = computed(() => auth.user?.email)
 const router = useRouter()
-
-const auth = useAuthStore()
         
 const logout = () => {
     auth.logout()

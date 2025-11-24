@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView.vue'
 import AccountListView from '@/views/accounts/AccountListView.vue'
 import AccountDetailView from '@/views/accounts/AccountDetailView.vue'
+import TransactionsListView from '@/views/TransactionsListView.vue'
 
 const routes = [
     {
@@ -24,16 +25,11 @@ const routes = [
         component: AccountDetailView,
         meta: { requiresAuth: true }
     },
-    // {
-    //     path: '/accounts/:accountId/envelopes',
-    //     component: EnvelopeListView,
-    //     meta: { requiresAuth: true }
-    // },
-    // {
-    //     path: '/accounts/:accountId/envelopes/:envelopeId/transactions',
-    //     component: TransactionListView,
-    //     meta: { requiresAuth: true }
-    // },
+     {
+         path: '/accounts/:accountId/envelopes/:envelopeId/transactions',
+         component: TransactionsListView,
+         meta: { requiresAuth: true }
+     },
     // {
     //     path: '/accounts/:accountId/transfers',
     //     component: TransferListView,

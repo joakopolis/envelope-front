@@ -1,0 +1,12 @@
+@import './variables.css';
+@import './typography.css';
+@import './layout.css';
+@import './components.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+}

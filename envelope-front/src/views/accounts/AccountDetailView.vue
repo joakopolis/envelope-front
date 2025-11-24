@@ -4,11 +4,15 @@
 
     <div v-else>
       <h1>{{ account.name }}</h1>
+      <button @click="goBack">Volver</button>
 
       <p><strong>Moneda:</strong> {{ account.currency }}</p>
       <p><strong>Balance:</strong> {{ account.balance }}</p>
 
-      <button @click="goBack">Volver</button>
+     <EnvelopesList
+        :envelopes="envelopeStore.envelopes" 
+        @refresh="() => envelopeStore.loadEnvelopes(route.params.id)"
+        />
     </div>
   </AppLayout>
 </template>
@@ -17,21 +21,17 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAccountStore } from '@/stores/accounts'
+import { useEnvelopesStore } from '@/stores/envelopes'
 import AppLayout from '@/components/layout/AppLayout.vue'
+import EnvelopesList from '@/components/envelopes/EnvelopesList.vue'
 
 const route = useRoute()
 const router = useRouter()
 
 const accountStore = useAccountStore()
+const envelopeStore = useEnvelopesStore()
 
-//const account = ref(null)
 const loading = ref(true)
-
-// const loadAccount = async () => {
-//   loading.value = true
-//   account.value = await accountStore.loadAccount(route.params.id)
-//   loading.value = false
-// }
 
 const loadAccount = async () => {
   loading.value = true
@@ -47,6 +47,7 @@ const goBack = () => {
 
 onMounted(() => {
   loadAccount()
+  envelopeStore.loadEnvelopes(route.params.id)
 })
 </script>
 

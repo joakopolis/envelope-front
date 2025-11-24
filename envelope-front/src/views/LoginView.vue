@@ -12,6 +12,13 @@
     const handleLogin = async () => {
         try {
             await auth.login(email.value, password.value)
+            if (window.confetti) {
+                window.confetti({
+                    particleCount: 200,
+                    spread: 80,
+                    origin: { y: 0.6 }
+                })
+            }
             router.push('/accounts')
         } catch (error) {
             errorMessage.value = 'Usuario o contraseña incorrectos.'
@@ -21,8 +28,8 @@
 </script>
 
 <template>
-    <div>
-        <h1>Iniciar sesión</h1>
+    <div class="card" style="max-width: 400px; margin: auto;">
+        <h2>Iniciar sesión</h2>
         <form @submit.prevent="handleLogin">
             <input v-model="email" type="email" placeholder="Correo electrónico" required/>
             <input v-model="password" type="password" placeholder="Contraseña" required/>

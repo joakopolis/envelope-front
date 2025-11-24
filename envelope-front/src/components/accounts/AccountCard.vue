@@ -25,7 +25,7 @@ const props = defineProps({
 
 defineEmits(['edit', 'delete'])
 
-function goToDetail() {
+const goToDetail = () => {
   router.push(`/accounts/${props.account.id}`)
 }
 </script>

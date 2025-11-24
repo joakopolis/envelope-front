@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="app-footer">
     {{ year }} Morelabs — Todos los derechos reservados
   </footer>
 </template>
@@ -8,6 +8,7 @@
 const year = new Date().getFullYear()
 </script>
 
+<!--
 <style scoped>
 .footer {
   text-align: center;
@@ -17,3 +18,4 @@ const year = new Date().getFullYear()
   font-size: 0.9rem;
 }
 </style>
+-->

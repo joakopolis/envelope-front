@@ -1,0 +1,19 @@
+:root {
+  --color-bg: #faf9f6;
+  --color-border: #e3ded6;
+  --color-text: #222;
+  --color-accent: #7b5e2a;
+
+  --white: #ffffff;
+  --gray-100: #f1f1f1;
+  --gray-300: #dcdcdc;
+  --gray-500: #888;
+
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(0,0,0,0.08);
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space: 16px;
+  --space-lg: 24px;
+}

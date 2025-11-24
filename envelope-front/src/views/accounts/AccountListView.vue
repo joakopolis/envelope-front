@@ -1,31 +1,44 @@
 <template>
   <AppLayout>
-    <button @click="createAccount">Nuevo sobre</button>
+    <button @click="goToCreate">Nueva cuenta</button>
 
-    <AccountsList :accounts="accountStore.accounts" />
+    <AccountsList 
+    :accounts="accountStore.accounts" 
+    @refresh="accountStore.loadAccounts"
+    />
+
+    <AccountCreateModal
+      v-if="showCreateModal"
+      @close="showCreateModal = false"
+      @saved="onAccountSaved"
+    />
   </AppLayout>
 </template>
 
 <script setup>
-//import { ref } from 'vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useAccountStore } from '@/stores/accounts'
+import AccountCreateModal from '@/components/accounts/AccountCreateModal.vue'
 import AppLayout from '@/components/layout/AppLayout.vue'
 import AccountsList from '@/components/accounts/AccountsList.vue'
 
-// const accounts = ref([
-//   { id: 1, name: 'Hogar', balance: 1200 },
-//   { id: 2, name: 'Taller', balance: 500 }
-// ])
+const showCreateModal = ref(false)
+
+function goToCreate() {
+  showCreateModal.value = true
+}
+
+function onAccountSaved() {
+  showCreateModal.value = false
+  accountStore.loadAccounts()
+}
+
 const accountStore = useAccountStore()
 
 onMounted(() => {
   accountStore.loadAccounts()
 })
 
-// function openCreateModal() {
-//    alert('Acá después abrimos el modal para crear')
-//  }
 </script>
 
 <style scoped>
