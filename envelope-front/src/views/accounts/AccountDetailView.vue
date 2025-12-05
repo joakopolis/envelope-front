@@ -11,7 +11,8 @@
 
      <EnvelopesList
         :envelopes="envelopeStore.envelopes" 
-        @refresh="() => envelopeStore.loadEnvelopes(route.params.id)"
+        :account-id="route.params.id"
+        @refresh="refreshAll"
         />
     </div>
   </AppLayout>
@@ -40,6 +41,11 @@ const loadAccount = async () => {
 }
 
 const account = computed(() => accountStore.current)
+
+const refreshAll = () => {
+    envelopeStore.loadEnvelopes(route.params.id)
+    accountStore.loadAccount(route.params.id)
+}
 
 const goBack = () => {
   router.push('/accounts')

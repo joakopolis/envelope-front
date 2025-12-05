@@ -1,10 +1,9 @@
 <template>
-  <div class="transaction-card">
-    <div class="info">
+  <div class="card">
+    <div class="card-item">
         <strong>{{ transaction.description}}</strong>
         <p>Fecha: {{ transaction.date }}</p>
-        <p>Monto: {{transaction.mount}}</p>
-        <p>Tipo: {{transaction.type}}</p>
+        <p>Monto: {{transaction.amount}}</p>
     </div>
   </div>
 </template>

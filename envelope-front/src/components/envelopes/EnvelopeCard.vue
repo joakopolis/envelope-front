@@ -1,5 +1,5 @@
 <template>
-  <div class="envelope-card">
+  <div class="envelope-card" @click="transactionsDetail">
     <div class="info">
       <strong>{{ envelope.name }}</strong>
       <p>Saldo: ${{ envelope.balance }}</p>
@@ -13,12 +13,13 @@
 </template>
 
 <script setup>
-// import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
-// const router = useRouter()
+const router = useRouter()
 
-const { envelope } = defineProps({
-  envelope: { type: Object, required: true }
+const { envelope, accountId } = defineProps({
+  envelope: { type: Object, required: true },
+  accountId: { type: [String, Number], required: true }
 })
 
 const emit = defineEmits(['edit', 'delete', 'new-transaction'])
@@ -30,12 +31,18 @@ const triggerEdit = () => {
       emit('edit', envelope)
 }
 const triggerDelete = () => {
-      emit('ndelete', envelope)
+      emit('delete', envelope)
 }
 
-// function goToDetail() {
-//   router.push(`/envelopes/${envelope.id}`)
-// }
+function transactionsDetail() {
+  router.push({
+    name: 'transactions',
+    params: {
+      accountId,
+      envelopeId: envelope.id
+    }
+  })
+}
 </script>
 
 <style scoped>

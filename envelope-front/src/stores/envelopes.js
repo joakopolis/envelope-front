@@ -68,8 +68,9 @@ export const useEnvelopesStore = defineStore('envelopes', {
       this.envelopes = this.envelopes.filter(a => a.id !== envelopeId)
     },
 
-    async loadTransactions(envelopeId) {
+    async loadTransactions(envelopeId, accountId = this.accountId) {
       if (!this.accountId) throw new Error('accountId no definido')
+      this.accountId = accountId
       this.loading = true
       
       try {

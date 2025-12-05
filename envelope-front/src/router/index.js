@@ -27,6 +27,7 @@ const routes = [
     },
      {
          path: '/accounts/:accountId/envelopes/:envelopeId/transactions',
+         name: 'transactions',
          component: TransactionsListView,
          meta: { requiresAuth: true }
      },

@@ -4,6 +4,7 @@
       v-for="envelope in envelopes" 
       :key="envelope.id" 
       :envelope="envelope"
+      :account-id="accountId"
       @edit="openEditModal"
       @delete="handleDeleteEnvelope" 
       @new-transaction="openTransactionModal"
@@ -39,8 +40,9 @@ import EnvelopeCreateModal from './EnvelopeCreateModal.vue'
 import NewTransactionModal from '@/components/transactions/NewTransactionModal.vue'
 import { useEnvelopesStore } from '@/stores/envelopes'
 
-const { envelopes } = defineProps({
+const { envelopes, accountId } = defineProps({
   envelopes: { type: Array, required: true },
+  accountId: { type: [String, Number], required: true }
 })
 
 const store = useEnvelopesStore()
